@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React , {Component} from 'react';
+import Week from './Week';
 import './App.css';
+// import moment from './momentjs/moment.min.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  state = {
+    min_date:'2019-06-24',
+    max_date:'2019-06-30'
+  }
+
+  previousWeek = () => {
+    this.setState({min_date: '2019-06-17', max_date: '2019-06-24'})
+  }
+
+  nextWeek = () => {
+    this.setState({min_date: '2019-06-24', max_date: '2019-06-30'})
+  }
+
+  render()
+  {
+    return (
+      <div className="App">
+        <h1 style={{backgroundColor:'lightgreen', margin:'auto'}}> Calendrier </h1>
+        <hr style={{margin:'auto'}}></hr>
+        <hr></hr>
+        <Week min_date={this.state.min_date} max_date={this.state.max_date} previousWeek={this.previousWeek} nextWeek={this.nextWeek}></Week>
+      </div>
+    );
+  }
 }
 
 export default App;
