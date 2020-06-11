@@ -1,5 +1,4 @@
 import React from 'react'
-import './style.css'
 
 const Activity = (props) => {
     let date = new Date(props.date_start)
