@@ -24,7 +24,6 @@ class App extends Component {
       <div className="App">
         <h1 style={{backgroundColor:'lightgreen', margin:'auto'}}> Calendrier </h1>
         <hr style={{margin:'auto'}}></hr>
-        <hr></hr>
         <Week min_date={this.state.min_date} max_date={this.state.max_date} previousWeek={this.previousWeek} nextWeek={this.nextWeek}></Week>
       </div>
     );
