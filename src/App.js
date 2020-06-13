@@ -29,7 +29,6 @@ class App extends Component {
           date_start: dataOffer[i].date_start,
           coach: coachName
         }
-        console.log(day)
         weekActivities[day].push(activity)
       }
 
@@ -48,7 +47,7 @@ class App extends Component {
     {
       const response = await fetch('https://back.staging.bsport.io/api/v1/offer/?min_date=' + this.state.min_date + '&max_date=' + this.state.max_date + '&company=6')
       const data = await response.json()
-      this.loadState(data.results, this.state.dataCoach)
+      this.loadState(data.results)
       this.state.loaded = true;
     }
   }
@@ -71,7 +70,8 @@ class App extends Component {
         <h1 style={{backgroundColor:'lightgreen', margin:'auto'}}> Calendrier </h1>
         <hr style={{margin:'auto'}}></hr>
         <div>Loading...</div>
-        </div>)
+        </div>
+      )
 
     const activities = []
     for (let i  = 1; i < this.state.weekActivities.length; i++){
